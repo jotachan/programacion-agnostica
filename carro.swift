@@ -92,14 +92,31 @@ class Empresa {
     }
 }
 
+class CarroLujo: Carro {
+    var extrasDeLujo: String
+
+    init(modelo: String, tipo: String, precio: Double, extrasDeLujo: String) {
+        self.extrasDeLujo = extrasDeLujo
+        super.init(modelo: modelo, tipo: tipo, precio: precio)
+    }
+
+    // Sobrescribimos el método detalles para incluir los extras de lujo
+    override func detalles() -> String {
+        return super.detalles() + ", Extras de lujo: \(extrasDeLujo)"
+    }
+}
+
 // Creación de instancias y ejecución de métodos
 
 let empresa = Empresa(nombre: "Autos XYZ", ubicacion: "Madrid")
 let carro1 = Carro(modelo: "AX100", tipo: "Sedán", precio: 20000.00)
 let carro2 = Carro(modelo: "AX200", tipo: "SUV", precio: 30000.00)
+let carroLujo = CarroLujo(modelo: "LX500", tipo: "Coupé", precio: 50000.00, extrasDeLujo: "Asientos de cuero, sistema de sonido premium, techo panorámico")
+
 
 empresa.agregarInventario(carro1)
 empresa.agregarInventario(carro2)
+empresa.agregarInventario(carroLujo)
 
 let cliente = Cliente(nombre: "Juan Pérez", direccion: "Calle Falsa 123", telefono: "555-1234")
 let orden = OrdenProduccion(carro: carro1, cantidad: 10)
