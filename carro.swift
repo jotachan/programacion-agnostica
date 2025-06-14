@@ -99,8 +99,7 @@ class CarroLujo: Carro {
         self.extrasDeLujo = extrasDeLujo
         super.init(modelo: modelo, tipo: tipo, precio: precio)
     }
-
-    // Sobrescribimos el método detalles para incluir los extras de lujo
+ 
     override func detalles() -> String {
         return super.detalles() + ", Extras de lujo: \(extrasDeLujo)"
     }
